@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/productListFragment">
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="br.com.fiap.projetofinal.ui.signup.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up">
+        <deepLink
+            android:id="@+id/deepLink2"
+            app:uri="https://www.calculaflex.com.br/signup" />
+        <action
+            android:id="@+id/action_signUpFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="br.com.fiap.projetofinal.ui.login.LogInFragment"
+        android:label="LogInFragment"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_logInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/betterFuelFragment"
+        android:name="br.com.fiap.projetofinal.ui.betterfuel.BetterFuelFragment"
+        android:label="BetterFuelFragment"
+        tools:layout="@layout/fragment_better_fuel">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="https://www.calculaflex.com.br/betterfuelfragment" />
+        <argument
+            android:name="user_email"
+            app:argType="string"
+            android:defaultValue="Nao Definido" />
+    </fragment>
+    <fragment
+        android:id="@+id/newProductFragment"
+        android:name="br.com.fiap.projetofinal.ui.product.NewProductFragment"
+        android:label="NewProductFragment"
+        tools:layout="@layout/fragment_new_product"/>
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="br.com.fiap.projetofinal.ui.product.ProductListFragment"
+        android:label="ProductListFragment"
+        tools:layout="@layout/fragment_product_list">
+        <action
+            android:id="@+id/action_productListFragment_to_newProductFragment"
+            app:destination="@id/newProductFragment" />
+    </fragment>
+</navigation>
