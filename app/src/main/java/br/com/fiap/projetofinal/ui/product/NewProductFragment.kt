@@ -44,7 +44,7 @@ class NewProductFragment : BaseAuthFragment() {
     private fun saveProductInFireStore(product: Product){
         val db = FirebaseFirestore.getInstance()
         db.collection("products").add(product)
-        Toast.makeText(requireContext(), "usuario adicionado com sucesso", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Produto adicionado com sucesso", Toast.LENGTH_SHORT).show()
     }
 
 }

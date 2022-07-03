@@ -20,11 +20,13 @@ class SignUpFragment : BaseFragment() {
     private lateinit var etPhoneSignUp: EditText
     private lateinit var etPasswordSignUp: EditText
     private lateinit var btCreateAccount: Button
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpView(view)
         registerObserver()
     }
+
     private fun setUpView(view: View) {
         etUserNameSignUp = view.findViewById(R.id.etUserNameSignUp)
         etEmailSignUp = view.findViewById(R.id.etEmailSignUp)
@@ -33,6 +35,7 @@ class SignUpFragment : BaseFragment() {
         btCreateAccount = view.findViewById(R.id.btCreateAccount)
         setUpListener()
     }
+
     private fun setUpListener() {
         btCreateAccount.setOnClickListener {
             val user = User(
@@ -46,6 +49,7 @@ class SignUpFragment : BaseFragment() {
             )
         }
     }
+
     private fun registerObserver() {
         this.signUpViewModel.signUpState.observe(viewLifecycleOwner, Observer {
             when (it) {
@@ -60,4 +64,5 @@ class SignUpFragment : BaseFragment() {
             }
         })
     }
+
 }

@@ -29,19 +29,6 @@
             app:destination="@id/productListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/betterFuelFragment"
-        android:name="br.com.fiap.projetofinal.ui.betterfuel.BetterFuelFragment"
-        android:label="BetterFuelFragment"
-        tools:layout="@layout/fragment_better_fuel">
-        <deepLink
-            android:id="@+id/deepLink"
-            app:uri="https://www.calculaflex.com.br/betterfuelfragment" />
-        <argument
-            android:name="user_email"
-            app:argType="string"
-            android:defaultValue="Nao Definido" />
-    </fragment>
-    <fragment
         android:id="@+id/newProductFragment"
         android:name="br.com.fiap.projetofinal.ui.product.NewProductFragment"
         android:label="NewProductFragment"

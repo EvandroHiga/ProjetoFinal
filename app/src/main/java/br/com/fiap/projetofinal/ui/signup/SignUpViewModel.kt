@@ -12,6 +12,7 @@ class SignUpViewModel : ViewModel() {
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
     val signUpState = MutableLiveData<RequestState<FirebaseUser>>()
+
     fun signUp(user: User) {
         signUpState.value = RequestState.Loading
         if (validateFields(user)) {
@@ -32,9 +33,9 @@ class SignUpViewModel : ViewModel() {
                 }
         }
     }
+
     private fun saveInFirestore(user: User) {
         db.collection("users")
-//.document(FirebaseAuth.getInstance().currentUser?.uid!!)
             .add(user)
             .addOnSuccessListener { documentReference ->
                 sendEmailVerification()
@@ -43,12 +44,14 @@ class SignUpViewModel : ViewModel() {
                 signUpState.value = RequestState.Error(Throwable(e.message))
             }
     }
+
     private fun sendEmailVerification() {
         mAuth.currentUser?.sendEmailVerification()
             ?.addOnCompleteListener { task ->
                 signUpState.value = RequestState.Success(mAuth.currentUser!!)
             }
     }
+
     private fun validateFields(user: User): Boolean {
         if (user.email?.isNotEmpty() == false) {
             signUpState.value = RequestState.Error(Throwable("E-mail inválido"))
@@ -64,4 +67,5 @@ class SignUpViewModel : ViewModel() {
         }
         return true
     }
+
 }

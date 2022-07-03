@@ -6,15 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.projetofinal.databinding.ProductItemBinding
 import br.com.fiap.projetofinal.models.Product
 
-class MainListAdapter (val listenerDelete: (Product) -> Unit) : RecyclerView.Adapter<MainListAdapter.ViewHolder>() {
-
+class ProductListAdapter (val listenerDelete: (Product) -> Unit) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ProductItemBinding) : RecyclerView.ViewHolder(binding. root)
 
     private var products = emptyList<Product>()
 
     override fun onCreateViewHolder (parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ProductItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
         return ViewHolder( binding)
     }
 
@@ -38,6 +36,5 @@ class MainListAdapter (val listenerDelete: (Product) -> Unit) : RecyclerView.Ada
         this.products = products
         notifyDataSetChanged()
     }
-
 
 }
