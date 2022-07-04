@@ -14,20 +14,20 @@ class ProductListViewModel (application: Application) : AndroidViewModel(applica
     val productState = MutableLiveData<RequestState<List<Product>>>()
 
     init {
-//        getProductsInFireStore()
+        getProductsInFireStore()
     }
 
-//    private fun getProductsInFireStore(){
-//        db.collection("products")
-//            .get()
-//            .addOnSuccessListener { documentReference ->
-//                val product = documentReference.toObjects<Product>()
-//                productState.value = RequestState.Success(product)
-//            }
-//            .addOnFailureListener{ it ->
-//                productState.value = RequestState.Error(Throwable(it.message))
-//            }
-//    }
+    private fun getProductsInFireStore(){
+        db.collection("products")
+            .get()
+            .addOnSuccessListener { documentReference ->
+                val product = documentReference.toObjects<Product>()
+                productState.value = RequestState.Success(product)
+            }
+            .addOnFailureListener{ it ->
+                productState.value = RequestState.Error(Throwable(it.message))
+            }
+    }
 
     fun delete(product: Product){
 
