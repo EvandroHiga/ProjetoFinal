@@ -6,9 +6,11 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 @IgnoreExtraProperties
 data class Product(
     val name: String? = null
-){
+) {
     @Exclude
-    fun toMap():Map<String, Any?>{
-        return mapOf("name" to name)
+    fun toMap(): Map<String, Any?> {
+        return mapOf(
+            "name" to name
+        )
     }
 }
