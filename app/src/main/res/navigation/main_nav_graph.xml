@@ -30,16 +30,31 @@
     </fragment>
     <fragment
         android:id="@+id/newProductFragment"
-        android:name="br.com.fiap.projetofinal.ui.product.NewProductFragment"
+        android:name="br.com.fiap.projetofinal.ui.newproduct.NewProductFragment"
         android:label="NewProductFragment"
         tools:layout="@layout/fragment_new_product"/>
     <fragment
         android:id="@+id/productListFragment"
-        android:name="br.com.fiap.projetofinal.ui.product.ProductListFragment"
+        android:name="br.com.fiap.projetofinal.ui.listproduct.ProductListFragment"
         android:label="ProductListFragment"
         tools:layout="@layout/fragment_product_list">
         <action
             android:id="@+id/action_productListFragment_to_newProductFragment"
             app:destination="@id/newProductFragment" />
+        <action
+            android:id="@+id/action_productListFragment_to_editProductFragment"
+            app:destination="@id/editProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProductFragment"
+        android:name="br.com.fiap.projetofinal.ui.editproduct.EditProductFragment"
+        android:label="EditProductFragment"
+        tools:layout="@layout/fragment_edit_product">
+
+        <argument
+            android:name="productId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
 </navigation>

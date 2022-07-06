@@ -37,7 +37,7 @@ class SignUpViewModel : ViewModel() {
     private fun saveInFirestore(user: User) {
         db.collection("users")
             .add(user)
-            .addOnSuccessListener { documentReference ->
+            .addOnSuccessListener {
                 sendEmailVerification()
             } .
             addOnFailureListener { e ->
@@ -47,7 +47,7 @@ class SignUpViewModel : ViewModel() {
 
     private fun sendEmailVerification() {
         mAuth.currentUser?.sendEmailVerification()
-            ?.addOnCompleteListener { task ->
+            ?.addOnCompleteListener {
                 signUpState.value = RequestState.Success(mAuth.currentUser!!)
             }
     }
