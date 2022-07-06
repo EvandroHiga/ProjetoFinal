@@ -14,8 +14,10 @@
     <string name="login_subtitle">Faça o login para continuar</string>
     <string name="signup_subtitle">Preencha os dados da sua conta</string>
     <string name="label_clear">Limpar dados</string>
-    <string name="loading_message_processing">Carregando</string>
+    <string name="loading_message_processing">Carregando...</string>
     <string name="default_notification_channel_name">Padrão</string>
     <string name="label_product_name">Nome do produto</string>
     <string name="button_save">Salvar</string>
+    <string name="message_product_success_save">Produto salvo com sucesso</string>
+    <string name="message_delete_success">Produto deletado com sucesso</string>
 </resources>
